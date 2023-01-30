@@ -9,11 +9,20 @@ const DESTINY_ITEMS = {
   things: ['besos', 'capones', 'abrazos']
 };
 
-// Math.floor(Math.random() * array.length)
+let itemname = '';
+let itemnumber = '';
+let itemthing = '';
+
+const printData = (array, item) => {
+  console.log(item);
+  item = array[Math.floor(Math.random() * array.length)];
+  destinyTitle.textContent = `${itemname} ${itemnumber} ${itemthing}`;
+};
 
 document.querySelectorAll('button').forEach(button => {
   button.addEventListener('click', ev => {
     const array = ev.target.dataset.item + 's';
-    printData(DESTINY_ITEMS[array]);
+    const item = 'item' + ev.target.dataset.item;
+    printData(DESTINY_ITEMS[array], item);
   });
 });
